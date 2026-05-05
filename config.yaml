@@ -1,0 +1,33 @@
+project: Road Accident Hotspot Analysis & Traffic Safety
+agency: Federal Road Safety Corps (FRSC)
+
+hotspot_radius_km: 1.0
+min_accidents_for_hotspot: 5
+severity_weights:
+  fatal: 3
+  serious: 2
+  minor: 1
+
+road_types:
+  - highway
+  - trunk
+  - primary
+  - secondary
+  - urban_road
+
+weather_factors:
+  - dry
+  - wet
+  - foggy
+
+model:
+  algorithm: KDE + RandomForest
+  n_estimators: 200
+  test_size: 0.2
+  random_state: 42
+
+output:
+  hotspot_map: "outputs/accident_hotspot_map.html"
+  hotspot_report: "outputs/hotspot_report.csv"
+  risk_chart: "outputs/risk_factors_chart.png"
+  severity_chart: "outputs/severity_analysis.png"
